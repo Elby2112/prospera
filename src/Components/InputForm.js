@@ -1,6 +1,6 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import LogoImage from "../Assets/Logo.svg"; 
+import LogoImage from "../Assets/Logo.svg";
 
 const positions = ["Software Engineer", "Data Scientist", "Product Manager", "UX Designer", "DevOps Engineer"];
 const diplomas = ["Bachelor's", "Master's", "PhD"];
@@ -56,6 +56,10 @@ const InputForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/chatbot"); // Navigate to the chatbot page
+  };
+
+  const handleBack = () => {
+    navigate(-1); // Go back to the previous page
   };
 
   return (
@@ -226,7 +230,10 @@ const InputForm = () => {
             </select>
           </div>
 
-          <button type="submit" className="submit-button">Next</button> {/* Changed type to submit */}
+          <div className="button-group">
+            <button type="button" className="back-button" onClick={handleBack}>Back</button>
+            <button type="submit" className="submit-button">Next</button>
+          </div>
         </form>
       </div>
     </div>
